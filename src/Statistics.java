@@ -28,6 +28,7 @@ public class Statistics {
 	 * function when your data is a sample from a population.
 	 * @return a real number that is the sample variance
 	 *         of the data set.
+	 *
 	 */
 	public double getVariance() {
 		double mean = getMean();
