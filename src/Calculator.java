@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -91,6 +92,31 @@ public class Calculator {
 			model.readData(dataset);
 		} catch (Exception e) {
 			System.out.println("Invalid input.\n");
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Load data set from a external file specified by a user.
+	 * 
+	 * @return true if the process is executed successfully. Otherwise, return
+	 *         false.
+	 */
+	public boolean loadFromFile() {
+		System.out.println(seperator);
+		System.out.print("Please enter full path to the file which contains data set: ");
+		String fileName = scanner.nextLine();
+		ArrayList<Double> dataset = new ArrayList<Double>();
+		try {
+			Scanner reader = new Scanner(new File(fileName));
+			while (reader.hasNextLine()) {
+				dataset.add(Double.parseDouble(reader.nextLine()));
+			}
+			reader.close();
+			model.readData(dataset);
+		} catch (FileNotFoundException e) {
+			System.out.println("An error occured when reading " + fileName + "\n");
 			return false;
 		}
 		return true;
