@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -119,6 +120,44 @@ public class Calculator {
 			System.out.println("An error occured when reading " + fileName + "\n");
 			return false;
 		}
+		return true;
+	}
+
+	/**
+	 * Load data set generated from a random number generator. The user needs to
+	 * provide upper bound, lower bound and count of number to be generated to the
+	 * generator.
+	 * 
+	 * @return true if the process is executed successfully. Otherwise, return
+	 *         false.
+	 */
+	public boolean loadFromGenerator() {
+		DataGenerator generator = new DataGenerator();
+		System.out.println(seperator);
+
+		boolean isFinished = false;
+		do {
+			System.out.print(
+					"Please enter lower bound, upper bound and count of number of the data set you want to generate (seperate by comma: x,x,x): ");
+			try {
+				String[] input = scanner.nextLine().split(",");
+				double lowerBound = Double.parseDouble(input[0]);
+				double upperBound = Double.parseDouble(input[1]);
+				int count = Integer.parseInt(input[2]);
+
+				ArrayList<Double> dataset = generator.generateDouble(lowerBound, upperBound, count);
+				model.readData(dataset);
+				isFinished = true;
+			} catch (IllegalArgumentException e) {
+				System.out.print("Invalid parameters for the random number generator: \n");
+				System.out.println(e.getMessage());
+				System.out.println("Please try agian.\n");
+			} catch (Exception e) {
+				System.out.println("Invalid parameters for the random number generator.");
+				System.out.println("Please try agian.\n");
+			}
+		} while (!isFinished);
+
 		return true;
 	}
 
