@@ -36,8 +36,39 @@ public class Calculator {
 		scanner.close();
 	}
 
+	/**
+	 * Start the calculator. Asking the user for loading a data set first. 
+	 * After successfully loading a data set, move to the main function selection section
+	 * which provides multiple measures for the given data set and a option for reloading
+	 * a new data set. Terminate the execution when the user choose to exit.
+	 */
 	public void start() {
-
+		System.out.println("Hi, welcome to use this statistical calculator.\n");
+		
+		// Choose to load data set into the calculator
+		boolean isFinished = false;
+		do {
+			System.out.println(seperator);
+			System.out.println("No data set is loaded into the calculator.");
+			System.out.println("    1. Load data");
+			System.out.println("    2. Exit");
+			System.out.print("Your choice (1-2): ");
+			String choice = scanner.nextLine();
+			switch (choice) {
+				case "1":
+					loadData();
+					isFinished = true;
+					break;
+				case "2":
+					System.out.println("Good bye.");
+					return;
+				default:
+					System.out.println("Invalid choice, try again.\n");
+					continue;
+			}
+			
+			isFinished = selectFunction();
+		} while (!isFinished);
 	}
 	
 	/**
