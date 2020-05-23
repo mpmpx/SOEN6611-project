@@ -22,7 +22,22 @@ public class Statistics {
 		
 		Arrays.sort(this.arr);
 	}
-	
+
+	/**
+	 * Return the sample variance. Use this
+	 * function when your data is a sample from a population.
+	 * @return a real number that is the sample variance
+	 *         of the data set.
+	 */
+	public double getVariance() {
+		double mean = getMean();
+		double variance = 0;
+		for (double num : this.arr) {
+			variance += ((num - mean) * (num - mean));
+		}
+		return variance / (arr.length - 1);
+	}
+
 	public void clear() {
 		this.arr = null;
 	}
