@@ -158,7 +158,19 @@ public class Statistics {
 			return arr[arr.length / 2];
 		}
 	}
-	
+	/**
+	 * Return the mean of absolute deviation of the data set.
+	 * @return a real number that is the mean of absolute deviation 
+	 *         of the data set.
+	 */
+	public double getMAD() {
+		double mean = getMean();
+		double total = 0;
+		for (double num : this.arr) {
+			total += (abs(num - mean));
+		}
+		return total / arr.length;
+	}
 	
 
     /**
