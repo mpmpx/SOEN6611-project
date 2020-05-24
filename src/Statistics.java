@@ -39,6 +39,13 @@ public class Statistics {
         return variance / (arr.length - 1);
     }
 
+    public double getMean() {
+		double total = 0;
+		for (double num : this.arr) {
+			total += num;
+		}
+		return total / arr.length;
+	}
     /**
      * Return the sample standard deviation. Use this
      * function when your data is a sample from a population.
