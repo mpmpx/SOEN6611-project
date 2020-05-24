@@ -88,6 +88,39 @@ public class Statistics {
     public int getCount() {
         return this.arr.length;
     }
+    
+    /**
+	 * Return a list of most frequent number(s) in the data set.
+	 * @return an ArrayList which contains most frequent number(s)
+	 *         in the data set.
+	 */
+    public ArrayList<Double> getMode() {
+		ArrayList<Double> mode = new ArrayList<Double>();
+		HashMap<Double, Integer> hashmap = new HashMap<Double, Integer>();
+		
+		for (double num : this.arr) {
+			if (hashmap.containsKey(num)) {
+				hashmap.put(num, hashmap.get(num) + 1);
+			}
+			else {
+				hashmap.put(num, 1);
+			}
+		}
+
+		int maxCount = 0;
+		for (int count : hashmap.values()) {
+			maxCount = count > maxCount ? count : maxCount;
+		}
+		
+		for (double key : hashmap.keySet()) {
+			if (hashmap.get(key) == maxCount) {
+				mode.add(key);
+			}
+		}
+		
+		return mode;
+	}
+	
 
     /**
      * Print all information of the data set.
