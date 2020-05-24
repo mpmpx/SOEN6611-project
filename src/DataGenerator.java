@@ -54,4 +54,24 @@ public class DataGenerator
         }
         return dataset;
     }
+
+    /**
+     * Generate a set of pseudorandom value and write it to a specified file.
+     * @param lowerBound the lower bound (inclusive).
+     * @param upperBound the upper bound (exclusive).
+     * @param count count number of value to be generated.
+     * @param fileName path of the file to be written.
+     * @throws IllegalArgumentException exception when there are bad arguments.
+     */
+    public void generateDouble(double lowerBound, double upperBound, int count, String fileName) throws IllegalArgumentException {
+        if (upperBound <= lowerBound) {
+            throw new IllegalArgumentException("The upper bound should be bigger than the lower bound.\n"
+                    + "Your upper bound: " + upperBound + ", your lower bound: " + lowerBound);
+        }
+
+        if (count <= 0) {
+            throw new IllegalArgumentException("The count of number should be greater than 0, your count: " + count);
+        }
+    }
+  
 }
