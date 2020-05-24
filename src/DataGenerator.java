@@ -63,8 +63,10 @@ public class DataGenerator
      * @param fileName path of the file to be written.
      * @throws IllegalArgumentException exception when there are bad arguments.
      */
-    public void generateDouble(double lowerBound, double upperBound, int count, String fileName) throws IllegalArgumentException {
-        if (upperBound <= lowerBound) {
+    public void generateDouble(double lowerBound, double upperBound, int count, String fileName) throws IllegalArgumentException
+    {
+        if (upperBound <= lowerBound)
+        {
             throw new IllegalArgumentException("The upper bound should be bigger than the lower bound.\n"
                     + "Your upper bound: " + upperBound + ", your lower bound: " + lowerBound);
         }
@@ -72,6 +74,28 @@ public class DataGenerator
         if (count <= 0) {
             throw new IllegalArgumentException("The count of number should be greater than 0, your count: " + count);
         }
+        try
+        {
+            FileWriter myWriter = new FileWriter(fileName);
+            String content = "";
+            for (int i = 0; i < count; i++) {
+                content += Double.toString(random.nextDouble() * (upperBound - lowerBound) + lowerBound) + "\n";
+                if (i % 10000 == 0) {
+                    myWriter.write(content);
+                    content = "";
+                }
+            }
+
+            if (content != "") {
+                myWriter.write(content);
+            }
+            myWriter.close();
+        }
+        catch (IOException e)
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
-  
+
 }
