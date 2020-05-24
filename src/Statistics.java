@@ -38,6 +38,11 @@ public class Statistics {
         }
         return variance / (arr.length - 1);
     }
+    /**
+	 * Return arithmetic mean of the data set.
+	 * @return a real number that is the arithmetic 
+	 *         mean of the data set.
+	 */
 
     public double getMean() {
 		double total = 0;
@@ -120,6 +125,24 @@ public class Statistics {
 		
 		return mode;
 	}
+    
+    
+    /**
+	 * Return the smallest number in the data set.
+	 * @return the smallest number in the data set.
+	 */
+	public double getMin() {
+		return arr[0];
+	}
+	
+	/**
+	 * Return the largest number in the data set.
+	 * @return the largest number in the data set.
+	 */
+	public double getMax() {
+		return arr[arr.length - 1];
+	}
+	
 	
 
     /**
