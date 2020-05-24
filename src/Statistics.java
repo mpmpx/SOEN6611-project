@@ -140,7 +140,23 @@ public class Statistics {
 	 * @return the largest number in the data set.
 	 */
 	public double getMax() {
+
 		return arr[arr.length - 1];
+	}
+	
+	
+	/**
+	 * Return the median of the data set.
+	 * @return the middle number of the data set if there are odd number of data.
+	 *         Otherwise, the arithmetic mean of the two middle numbers is returned.
+	 */
+	public double getMedian() {
+		if (arr.length % 2 == 0) {
+			return (arr[arr.length / 2] + arr[arr.length / 2 - 1]) / 2.0;
+		}
+		else {
+			return arr[arr.length / 2];
+		}
 	}
 	
 	
