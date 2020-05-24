@@ -171,6 +171,23 @@ public class Statistics {
 		}
 		return total / arr.length;
 	}
+
+	/**
+	 * Return the harmonic mean of the data set.
+	 * The harmonic mean is a type of average, 
+	 * a measure of the central location of the data.
+	 * It is appropriate for situations when the average of rates is desired.
+	 * @return a real number that is the harmonic mean of the 
+	 *         data set.
+	 */
+	public double getHarmonicMean() {
+		
+		double sum = 0;
+		for (double number : this.arr) {
+			sum += 1 / number;
+		}
+		return this.arr.length / sum;
+	}	
 	
 
     /**
