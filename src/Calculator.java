@@ -33,7 +33,8 @@ public class Calculator {
 	/**
 	 * Turn off the calculator and close the scanner for the user's input.
 	 */
-	public void close() {
+	public void close()
+	{
 		scanner.close();
 	}
 
@@ -193,11 +194,47 @@ public class Calculator {
 	}
 
 	/**
+	 * A section for selecting a measure for the given data set. Also, the user can either clear
+	 * the current data set and reload a new one, or terminate the program execution.
+	 * @return
+	 */
+	private boolean selectFunction()
+	{
+		boolean isFinished = false;
+		// Function provided by the calculator
+		do {
+			System.out.println(seperator);
+			System.out.println("Choose a measure for the data set or reload a new data set:");
+			System.out.println("    1.  Minimum\n"
+					+ "    2.  Maximum\n"
+					+ "    3.  Mode\n"
+					+ "    4.  Median\n"
+					+ "    5.  Mean\n"
+					+ "    6.  Harmonic mean\n"
+					+ "    7.  Mean absolute deviation\n"
+					+ "    8.  Population variance\n"
+					+ "    9.  Population standard deviation\n"
+					+ "    10. Sample variance\n"
+					+ "    11. Sample standard deviation\n"
+					+ "    12. Show all\n"
+					+ "    13. Clear data set\n"
+					+ "    14. Exit");
+			System.out.print("Your choice (1-14): ");
+			String choice = scanner.nextLine();
+			
+		} while(!isFinished);
+
+		return true;
+	}
+
+
+	/**
 	 * The main method is where the calculator is created, turned on and closed.
 	 * 
 	 * @param args program arguments.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		Calculator calculator = new Calculator();
 		calculator.start();
 		calculator.close();
