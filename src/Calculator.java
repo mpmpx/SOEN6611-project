@@ -221,7 +221,53 @@ public class Calculator {
 					+ "    14. Exit");
 			System.out.print("Your choice (1-14): ");
 			String choice = scanner.nextLine();
-			
+			switch (choice)
+			{
+				case "1":
+					System.out.println("Minimum: " + model.getMin());
+					break;
+				case "2":
+					System.out.println("Maximum: " + model.getMax());
+					break;
+				case "3":
+					System.out.println("Mode: " + model.getMode());
+					break;
+				case "4":
+					System.out.println("Median: " + model.getMedian());
+					break;
+				case "5":
+					System.out.println("Mean: " + model.getMean());
+					break;
+				case "6":
+					System.out.println("Harmonic mean: " + model.getHarmonicMean());
+					break;
+				case "7":
+					System.out.println("Mean absolute deviation: " + model.getMAD());
+					break;
+				case "8":
+					System.out.println("Population variance: " + model.getPVariance());
+					break;
+				case "9":
+					System.out.println("Population standard deviation: " + model.getPSD());
+					break;
+				case "10":
+					System.out.println("Sample variance: " + model.getVariance());
+					break;
+				case "11":
+					System.out.println("Sample standard deviation: " + model.getSD());
+					break;
+				case "12":
+					model.printAll();
+					break;
+				case "13":
+					model.clear();
+					return false;
+				case "14":
+					System.out.println("Good bye.");
+					return true;
+				default:
+					System.out.println("Invalid choice, try again.\n");
+			}
 		} while(!isFinished);
 
 		return true;
