@@ -97,14 +97,4 @@ public class DataGenerator
             e.printStackTrace();
         }
     }
-
-    /**
-     * The main function used for debugging.
-     * @param args program arguments
-     */
-    public static void main(String[] args)
-    {
-        //Will be used when debugging code is added
-    }
-
 }

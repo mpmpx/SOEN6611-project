@@ -111,7 +111,6 @@ public class Statistics {
 	 *         data set.
 	 */
 	public double getHarmonicMean() {
-		
 		double sum = 0;
 		for (double number : this.arr) {
 			sum += 1 / number;
@@ -201,8 +200,7 @@ public class Statistics {
 		ArrayList<Double> mode = getMode();
 		System.out.print("mode: ");
 		
-		int i = 0;
-		for (i = 0; i < mode.size() && i <= 5; i++) {
+		for (int i = 0; i < mode.size() && i <= 5; i++) {
 			System.out.print(mode.get(i) + " ");
 		}
 		
@@ -256,15 +254,16 @@ public class Statistics {
 		
 		// naive guess to get a initial guess number as 
 		// closest to the correct answer as possible.
-		while (guess < num) {
+		while (guess <= num) {
 			tmp++;
 			guess = tmp * tmp;
 		}
-		guess -= 1;
+		tmp -= 1;
+		guess = tmp * tmp;
 		
 		// Babylonian method. Accuracy is set to 0.00001
 		double newGuess = (num / guess + guess) / 2;
-		while (abs(newGuess - guess) > 0.1) {
+		while (abs(newGuess - guess) > 0.00001) {
 			guess = newGuess;
 			newGuess = (num / guess + guess) / 2;
 		}
@@ -275,13 +274,4 @@ public class Statistics {
 		
 		return newGuess;
 	}
-	
-	/**
-	 * The main function used for debugging.
-	 * @param args program arguments
-	 */
-	public static void main(String[] args) {
-
-	}
-	
 }
